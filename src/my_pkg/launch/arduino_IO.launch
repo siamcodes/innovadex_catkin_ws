@@ -1,0 +1,11 @@
+<launch>
+  <arg name="port" default="/dev/ttyUSB0" />
+
+  <node name="ArduinoIO_node" pkg="rosserial_python" type="serial_node.py" output="screen">
+    <param name="port" value="$(arg port)" />
+  </node>
+
+  <node name="analogRead_node" pkg="my_pkg" type="analog_read.py" output="screen" />
+  <node name="digitalRead_node" pkg="my_pkg" type="digital_read.py" output="screen" />
+</launch>
+
